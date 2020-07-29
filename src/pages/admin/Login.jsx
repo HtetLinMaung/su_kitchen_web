@@ -16,6 +16,9 @@ const useStyles = makeStyles(() => ({
   },
   controls: {
     backgroundColor: "#F3F5F9"
+  },
+  title: {
+    color: "#41546B"
   }
 }));
 
@@ -40,6 +43,9 @@ const Login = () => {
           direction="column"
           justify="center"
         >
+          <Grid item>
+            <h2 className={classes.title}>Login to Su's Kitchen Admin</h2>
+          </Grid>
           <Grid item>
             <FocusTextField placeholder="Phone number" />
           </Grid>
