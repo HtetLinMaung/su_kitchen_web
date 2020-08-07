@@ -44,9 +44,9 @@ const useStyles = makeStyles(() => ({
 }));
 
 const HeaderBar = (props) => {
-  const matches = useMediaQuery("(max-width:768px)");
+  const matches = useMediaQuery("(max-width:823px)");
   const matches2 = useMediaQuery("(max-width:473px)");
-  const matches3 = useMediaQuery("(max-width:375px)");
+  const matches3 = useMediaQuery("(max-width:414px)");
   const matches4 = useMediaQuery("(max-width:375px)");
   const classes = useStyles();
 

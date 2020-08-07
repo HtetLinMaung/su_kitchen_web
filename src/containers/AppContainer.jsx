@@ -14,7 +14,8 @@ import { useMediaQuery } from "@material-ui/core";
 
 const useStyles = makeStyles(() => ({
   container: {
-    flex: 1
+    flex: 1,
+    paddingTop: "6.5rem"
   },
   fab: {
     transition: "all 0.3s",
