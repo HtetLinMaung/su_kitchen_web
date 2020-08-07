@@ -1,20 +1,19 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import AppContainer from "../containers/AppContainer";
 import routes from "./router";
 
-const AppRouter = () => (
-  <Router>
-    <Switch>
-      {routes.map((route) => (
+const AppRouter = () => {
+  return (
+    <Router>
+      <Switch>
         <Route
-          key={route.path}
-          path={route.path}
-          exact
-          component={route.component}
+          path="/admin/"
+          render={(props) => <AppContainer {...props} routes={routes} />}
         />
-      ))}
-    </Switch>
-  </Router>
-);
+      </Switch>
+    </Router>
+  );
+};
 
 export default AppRouter;

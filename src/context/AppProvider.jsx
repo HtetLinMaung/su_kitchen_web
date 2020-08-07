@@ -1,5 +1,6 @@
 import React, { createContext, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
+import PropTypes from "prop-types";
 
 import Backdrop from "@material-ui/core/Backdrop";
 import CircularProgress from "@material-ui/core/CircularProgress";
@@ -24,6 +25,10 @@ const AppProvider = ({ children }) => {
       </Backdrop>
     </AppContext.Provider>
   );
+};
+
+AppProvider.propTypes = {
+  children: PropTypes.node.isRequired
 };
 
 export default AppProvider;

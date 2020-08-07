@@ -1,5 +1,6 @@
 import Login from "../pages/admin/Login";
 import Dashboard from "../pages/admin/Dashbord";
+import Category from "../pages/admin/Category";
 
 const routes = [
   {
@@ -9,6 +10,10 @@ const routes = [
   {
     path: "/admin",
     component: Dashboard
+  },
+  {
+    path: "/admin/categories",
+    component: Category
   }
 ];
 
