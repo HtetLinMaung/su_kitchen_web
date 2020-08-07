@@ -5,7 +5,6 @@ import { Switch, Route, useLocation } from "react-router-dom";
 import Grid from "@material-ui/core/Grid";
 import Fab from "@material-ui/core/Fab";
 
-
 import AppDrawer from "../components/AppDrawer";
 import HeaderBar from "../components/HeaderBar";
 
@@ -56,7 +55,12 @@ const AppContainer = ({ routes }) => {
         }}
       />
       <Fab
-        style={{ transform: !matches ? "scale(0)" : "scale(1)" }}
+        style={{
+          transform:
+            !matches || location.pathname.indexOf("/admin/login") !== -1
+              ? "scale(0)"
+              : "scale(1)"
+        }}
         aria-label="expand"
         className={classes.fab}
         onClick={() => setOpen((v) => !v)}
