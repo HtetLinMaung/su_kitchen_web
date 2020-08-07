@@ -13,7 +13,7 @@ import setting from "../assets/images/menu.png";
 
 const useStyles = makeStyles(() => ({
   root: {
-    width: 83,
+    left: 0,
     height: "100vh",
     overflow: "auto",
     backgroundColor: "#F2F4F7",

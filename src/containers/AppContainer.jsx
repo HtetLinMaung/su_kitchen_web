@@ -1,14 +1,15 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Switch, Route, useLocation } from "react-router-dom";
 
 import Grid from "@material-ui/core/Grid";
 import Fab from "@material-ui/core/Fab";
 
+
 import AppDrawer from "../components/AppDrawer";
 import HeaderBar from "../components/HeaderBar";
 
-import { DoubleArrow } from "@material-ui/icons";
+import { ArrowForwardIosOutlined } from "@material-ui/icons";
 
 import { useMediaQuery } from "@material-ui/core";
 
@@ -17,9 +18,16 @@ const useStyles = makeStyles(() => ({
     flex: 1
   },
   fab: {
+    transition: "all 0.3s",
     position: "absolute",
-    right: 0,
-    bottom: 0
+    right: 20,
+    bottom: 20,
+    backgroundColor: "#70709c",
+    color: "#fff",
+    "&:hover": { backgroundColor: "#70709c" }
+  },
+  icon: {
+    transition: "all 0.3s"
   }
 }));
 
@@ -27,6 +35,14 @@ const AppContainer = ({ routes }) => {
   const matches = useMediaQuery("(max-width:473px)");
   const location = useLocation();
   const classes = useStyles();
+  const [open, setOpen] = useState(true);
+  useEffect(() => {
+    if (!(location.pathname.indexOf("/admin/login") !== -1 || matches)) {
+      setOpen(true);
+    } else {
+      setOpen(false);
+    }
+  }, [location, matches]);
   const showHideStyle = {
     display: location.pathname.indexOf("/admin/login") !== -1 ? "none" : ""
   };
@@ -35,19 +51,20 @@ const AppContainer = ({ routes }) => {
     <Grid container>
       <AppDrawer
         style={{
-          display:
-            location.pathname.indexOf("/admin/login") !== -1 || matches
-              ? "none"
-              : ""
+          width: open ? 83 : 0,
+          position: matches ? "absolute" : "static"
         }}
       />
       <Fab
-        style={{ display: !matches ? "none" : "" }}
-        color="primary"
-        aria-label="add"
+        style={{ transform: !matches ? "scale(0)" : "scale(1)" }}
+        aria-label="expand"
         className={classes.fab}
+        onClick={() => setOpen((v) => !v)}
       >
-        <DoubleArrow />
+        <ArrowForwardIosOutlined
+          className={classes.icon}
+          style={{ transform: !open ? "rotate(-180deg)" : "rotate(0deg)" }}
+        />
       </Fab>
       <HeaderBar style={showHideStyle} />
       <Grid item className={classes.container}>

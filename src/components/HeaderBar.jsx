@@ -5,6 +5,7 @@ import Grid from "@material-ui/core/Grid";
 import IconButton from "@material-ui/core/IconButton";
 import InputBase from "@material-ui/core/InputBase";
 import InputAdornment from "@material-ui/core/InputAdornment";
+import Badge from "@material-ui/core/Badge";
 
 import { NotificationsNoneOutlined, Search } from "@material-ui/icons";
 import { useMediaQuery } from "@material-ui/core";
@@ -36,6 +37,9 @@ const useStyles = makeStyles(() => ({
     border: ".5px solid #E8E8EF",
     height: 38,
     margin: "1rem"
+  },
+  badge: {
+    backgroundColor: "#F2406D"
   }
 }));
 
@@ -87,7 +91,16 @@ const HeaderBar = (props) => {
             <div className={classes.divider}></div>
             <Grid item>
               <IconButton>
-                <NotificationsNoneOutlined className={classes.icon} />
+                <Badge
+                  classes={{
+                    colorPrimary: classes.badge
+                  }}
+                  color="primary"
+                  variant="dot"
+                  overlap="circle"
+                >
+                  <NotificationsNoneOutlined className={classes.icon} />
+                </Badge>
               </IconButton>
             </Grid>
             <div style={{ flex: 1, display: matches3 ? "none" : "" }}></div>
